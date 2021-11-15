@@ -23,7 +23,7 @@ config :elixir_vite_app, ElixirViteAppWeb.Endpoint,
   code_reloader: true,
   debug_errors: true,
   secret_key_base: "VQroIbMxYXwQYKRFCWHeycObnx/93Au6nGAAcSF2vrcUrf5lN3H+QePItMZXkypz",
-  watchers: []
+  watchers: [pnpm: ["run", "dev", cd: Path.expand("../assets", __DIR__)]]
 
 # ## SSL Support
 #
