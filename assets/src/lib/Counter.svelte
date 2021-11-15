@@ -6,7 +6,7 @@
 </script>
 
 <button on:click={increment}>
-  Clicks: {count}
+  Count: {count}
 </button>
 
 <style>

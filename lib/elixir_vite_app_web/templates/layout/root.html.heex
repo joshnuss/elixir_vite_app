@@ -7,9 +7,14 @@
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "ElixirViteApp", suffix: " · Phoenix Framework" %>
 
-    <!-- if development -->
-    <script type="module" src="http://localhost:3004/@vite/client"></script>
-    <script type="module" src="http://localhost:3004/src/main.js"></script>
+    <%= if Application.get_env(:elixir_vite_app, :vite) |> Keyword.fetch!(:mode) == :dev do %>
+      <script type="module" src="http://localhost:3000/@vite/client"></script>
+      <script type="module" src="http://localhost:3000/src/main.js"></script>
+    <% else %>
+      <link rel="stylesheet" href={Routes.static_path(@conn, "/dist/assets/main.css")}/>
+      <script type="module" src={Routes.static_path(@conn, "/dist/assets/main.js")}></script>
+    <% end %>
+
   </head>
   <body>
     <%= @inner_content %>
