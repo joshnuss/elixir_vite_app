@@ -18,7 +18,7 @@ RUN cd assets && \
 ADD . .
 
 RUN cd assets/ && \
-  npm run deploy && \
+  npm run build && \
   cd - && \
   mix do compile, phx.digest
 
